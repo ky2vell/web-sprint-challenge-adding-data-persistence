@@ -1,5 +1,7 @@
 const express = require('express');
 const welcomeRouter = require('./routers/welcomeRouter');
+const projectRouter = require('./routers/projectRouter');
+const resourceRouter = require('./routers/resourceRouter');
 const error = require('./middleware/error');
 const colors = require('colors');
 
@@ -9,6 +11,8 @@ server.use(express.json());
 
 // API Routes
 server.use(welcomeRouter);
+server.use('/api/projects', projectRouter);
+server.use('/api/resources', resourceRouter);
 
 // Error MiddleWare
 server.use(error);
